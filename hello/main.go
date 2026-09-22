@@ -2,10 +2,18 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"modules_in_go/greetings"
 )
 
 func main() {
-	msg := greetings.Hello("Olamilekan")
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+	msg, err := greetings.Hello("")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	fmt.Println(msg)
 }
